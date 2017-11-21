@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content>
+  <input type="file" (change)="onChange($event)" *ngIf="data.file_show">
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.fileData.file_comment" placeholder="写下一段话" name="title">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="选择日期" [(ngModel)]="data.fileData.file_date" name="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <mat-checkbox [(ngModel)]="data.fileData.is_private">隐私</mat-checkbox>
+  <button mat-button mat-dialog-close>取消</button>
+  <button mat-button [mat-dialog-close]="data" [disabled]="!data.file && data.file_show">确定</button>
+</mat-dialog-actions>

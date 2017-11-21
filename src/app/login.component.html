@@ -1,0 +1,12 @@
+<div class="login-container">
+  <mat-form-field>
+    <input matInput placeholder="请输入用户名" [(ngModel)]="user.userName" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="password" placeholder="请输入密码" [(ngModel)]="user.password" required>
+  </mat-form-field>
+  <mat-error *ngIf="loginErr">{{message}}</mat-error>
+  <br>
+  <button mat-button color="primary" (click)='guest()'>游客登录</button>
+  <button class="float-r" mat-raised-button color="primary" (click)='login(user)'>登录</button>
+</div>

@@ -1,0 +1,31 @@
+.show-container{
+  width: 80%;
+  margin: auto;
+}
+.show-img{
+  width: 100%;
+  height: 100%;
+}
+.show-video{
+  width: 100%;
+  height: 80%;
+  margin-bottom: 68px;
+}
+.fix-add{
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  opacity: 0.5;
+}
+.show-icon{
+  font-size: 32px !important;
+  height: 32px;
+  width: 32px;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 780px) {
+  .show-container{
+    width: 100%;
+  }
+}

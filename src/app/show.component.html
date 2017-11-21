@@ -1,0 +1,22 @@
+<div class="show-container">
+  <mat-grid-list cols="1" rowHeight="4:3">
+    <mat-grid-tile *ngFor="let item of fileArr">
+        <img class="show-img" *ngIf="item.file_type==='image'" [src]="item.file_name" alt="...">
+        <video class="show-video" *ngIf="item.file_type==='video'" [src]="item.file_name" controls></video>
+        <mat-grid-tile-footer>
+          <h3 matLine>{{item.file_comment}}</h3>
+          <p matLine>
+            <span>{{item.file_date | date:'yyyy-MM-dd'}}</span>
+          </p>
+          <mat-icon class="show-icon" matTooltip="编辑" *ngIf="!isGuest" (click)="editDialog(item)">edit</mat-icon>
+          <mat-icon class="show-icon" matTooltip="删除" *ngIf="!isGuest" (click)="delete(item.id, item)">delete</mat-icon>
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="fix-add" *ngIf="!isGuest">
+  <a (click)="addDialog()">
+    <mat-icon class="show-icon">add_circle</mat-icon>
+  </a>
+</div>
